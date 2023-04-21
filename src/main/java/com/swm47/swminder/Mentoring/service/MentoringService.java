@@ -1,5 +1,7 @@
-package com.swm47.swminder.Mentoring;
+package com.swm47.swminder.Mentoring.service;
 
+import com.swm47.swminder.Mentoring.entity.Mentoring;
+import com.swm47.swminder.Mentoring.repository.MentoringRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

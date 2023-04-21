@@ -1,5 +1,6 @@
-package com.swm47.swminder.Mentoring;
+package com.swm47.swminder.Mentoring.repository;
 
+import com.swm47.swminder.Mentoring.entity.Mentoring;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

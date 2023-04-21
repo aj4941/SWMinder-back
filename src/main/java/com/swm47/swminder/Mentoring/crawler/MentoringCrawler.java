@@ -1,7 +1,7 @@
-package com.swm47.swminder.Mentoring.Crawler;
+package com.swm47.swminder.Mentoring.crawler;
 
-import com.swm47.swminder.Mentoring.Mentoring;
-import com.swm47.swminder.Mentoring.MentoringService;
+import com.swm47.swminder.Mentoring.entity.Mentoring;
+import com.swm47.swminder.Mentoring.service.MentoringService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
@@ -50,7 +50,6 @@ public class MentoringCrawler {
 
     @PostConstruct
     private void postConstruct() throws NoSuchAlgorithmException, KeyManagementException {
-        System.out.println("hello");
         setSSL();
     }
 

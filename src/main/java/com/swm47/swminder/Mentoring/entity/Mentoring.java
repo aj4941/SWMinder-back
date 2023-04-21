@@ -1,4 +1,4 @@
-package com.swm47.swminder.Mentoring;
+package com.swm47.swminder.Mentoring.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
