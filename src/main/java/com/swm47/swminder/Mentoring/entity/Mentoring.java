@@ -1,5 +1,6 @@
 package com.swm47.swminder.Mentoring.entity;
 
+import com.swm47.swminder.MemberMentoring.entity.MemberMentoring;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -49,4 +52,8 @@ public class Mentoring {
         limitCount = mentoring.getLimitCount();
         qustnrSn = mentoring.getQustnrSn();
     }
+
+    @OneToMany(mappedBy = "mentoring", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<MemberMentoring> memberMentorings = new ArrayList<>();
 }

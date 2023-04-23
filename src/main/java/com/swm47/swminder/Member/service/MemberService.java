@@ -18,6 +18,6 @@ public class MemberService {
     public Long saveMember(MemberDTO memberDTO) {
         memberDTO.setPassword(bCryptPasswordEncoder.encode(memberDTO.getPassword()));
         Member savedMember = memberRepository.save(memberDTO.toEntity());
-        return savedMember.getMember_id();
+        return savedMember.getMemberId();
     }
 }

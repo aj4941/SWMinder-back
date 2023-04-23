@@ -18,7 +18,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig {
 
     private final UserDetailsService userDetailsService;
-
     @Bean
     public static BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
@@ -27,7 +26,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()// 비활성화하면 POST signUp 정상 요청 (
+                .csrf().disable()// 비활성화하면 POST signUp 정상 요청
                 .authorizeRequests()
                 .antMatchers("/signUp").permitAll() // 설정한 리소스의 접근을 인증절차 없이 허용
                 .anyRequest().authenticated() // 그 외 모든 리소스를 의미하며 인증 필요
@@ -35,6 +34,7 @@ public class SecurityConfig {
                 .formLogin()
                 .permitAll()
                 .loginPage("/login") // 기본 로그인 페이지
+                .defaultSuccessUrl("/home")
                 .and()
                 .logout()
                 .permitAll()

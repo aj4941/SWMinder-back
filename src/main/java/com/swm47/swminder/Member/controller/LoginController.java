@@ -20,7 +20,10 @@ public class LoginController {
     public ResponseEntity<String> login() {
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
-
+    @GetMapping("/home")
+    public ResponseEntity<String> home() {
+        return new ResponseEntity<>("OK", HttpStatus.OK);
+    }
     @GetMapping("/signUp")
     public ResponseEntity<String> signUp() {
         return new ResponseEntity<>("OK", HttpStatus.OK);

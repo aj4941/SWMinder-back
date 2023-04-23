@@ -1,9 +1,9 @@
 package com.swm47.swminder.Member.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.swm47.swminder.Board.entity.Board;
+import com.swm47.swminder.MemberMeetup.entity.MemberMeetup;
+import com.swm47.swminder.MemberMentoring.entity.MemberMentoring;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,11 +14,11 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder @ToString(exclude = "boards")
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long member_id;
+    private Long memberId;
 
     private String username;
 
@@ -43,4 +43,15 @@ public class Member {
     @CollectionTable(joinColumns = @JoinColumn(name = "member_id"))
     private List<String> skills = new ArrayList<>();
 
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<Board> boards = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<MemberMentoring> memberMentorings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<MemberMeetup> memberMeetups = new ArrayList<>();
 }
